@@ -3,20 +3,28 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./client/index.js",
   output: {
-    filename: "bundle.[hash].js",
+    filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
-  // mode: 'none',
+  mode: process.env.NODE_ENV,
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./client/index.html",
     }),
   ],
+  devServer: {
+    proxy: {
+      '/api/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+    },
+  },
   resolve: {
-    // modules: [__dirname, "src", "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+    modules: [__dirname, "client", "node_modules"],
+    extensions: ["*", ".js", ".jsx", ".tsx", ".ts", "css"],
   },
   module: {
     rules: [
@@ -36,3 +44,8 @@ module.exports = {
     ],
   },
 };
+
+
+
+// "start": "webpack serve  --hot --open",
+// "build": "webpack --config webpack.config.js --mode production"
