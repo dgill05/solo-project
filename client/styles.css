@@ -1,18 +1,42 @@
-/* .flex-container{
+html {
+  background-color: rgb(87, 188, 219);
+}
+h1 {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.flex-container {
   display: flex;
+  justify-content: center;
 }
 
-input{
-  background-color: rgb(241, 222, 237);
-  color: rgb(0, 0, 0);
-  border-radius: 20px;
+.add-btn {
+  margin-left: 1rem;
 }
 
-h1{
-  color: rgb(197, 133, 176);
+.task-input {
+  width: 15rem;
+  margin-bottom: 2rem;
 }
 
-button {
-  background-color: rgb(231, 151, 205);
-  border-radius: 20px;
+.delete-btn {
+  margin-left: 2rem;
+}
+
+.app {
+  background-color: lightblue;
+  height: 100vh;
+}
+
+.task-div {
+  color: black;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/* * {
+  border: 1px solid red; 
 } */

@@ -14,17 +14,15 @@ controller.getData = (req, res, next) => {
   })
 }
 
-// controller.createData = (req, res, next) => {
-//   models.test.find({})
-//   .then((data) => {
-//     // console.log(data)
-//     res.locals.data = data;
-//   })
-//     return next();
-// }
-
-// controller.addTask = (req, res, next){
-
-// }
+controller.addTask = (req, res, next) => {
+  models.test.create({
+    name: req.body.sentTask
+  })
+  .then(()=> next())
+    .catch(err => {
+      console.log('HERE');
+      return next({error: err});
+    }); 
+}
 
 module.exports = controller;
